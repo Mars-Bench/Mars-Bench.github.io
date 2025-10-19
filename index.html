@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mars-Bench: A Benchmark for Evaluating Foundation Models for Mars Science Tasks</title>
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Table of Contents Sidebar -->
+    <nav class="toc-sidebar">
+        <div class="toc-content">
+            <h3 class="toc-title">Contents</h3>
+            <ul class="toc-list">
+                <li><a href="#abstract" class="toc-link">Abstract</a></li>
+                <li><a href="#features" class="toc-link">Key Features</a></li>
+                <li><a href="#tasks" class="toc-link">Tasks & Datasets</a></li>
+                <li><a href="#quickstart" class="toc-link">Quick Start</a></li>
+                <li><a href="#models" class="toc-link">Model Architectures</a></li>
+                <li><a href="#citation" class="toc-link">Citation</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1 class="title">Mars-Bench: A Benchmark for Evaluating Foundation Models for Mars Science Tasks</h1>
+
+            <!-- Authors -->
+            <div class="authors">
+                <span class="author">Mirali Purohit<sup>1,3</sup></span>
+                <span class="author">Bimal Gajera<sup>1*</sup></span>
+                <span class="author">Vatsal Malaviya<sup>1*</sup></span>
+                <span class="author">Irish Mehta<sup>1*</sup></span>
+                <span class="author">Kunal Kasodekar<sup>1</sup></span>
+                <span class="author">Jacob Adler<sup>2</sup></span>
+                <span class="author">Steven Lu<sup>3</sup></span>
+                <span class="author">Umaa Rebbapragada<sup>3</sup></span>
+                <span class="author">Hannah Kerner<sup>1</sup></span>
+            </div>
+
+            <!-- Equal Contribution -->
+            <div class="equal-contrib">
+                <sup>*</sup>Equal Contribution
+            </div>
+
+            <!-- Affiliations -->
+            <div class="affiliations">
+                <div class="affiliation"><sup>1</sup>School of Computing and Augmented Intelligence, Arizona State University, Tempe, AZ, USA</div>
+                <div class="affiliation"><sup>2</sup>School of Earth and Space Exploration, Arizona State University, Tempe, AZ, USA</div>
+                <div class="affiliation"><sup>3</sup>Jet Propulsion Laboratory, California Institute of Technology, Pasadena, CA, USA</div>
+            </div>
+
+            <!-- Links -->
+            <div class="links">
+                <a href="https://github.com/kerner-lab/MarsBench" class="btn" target="_blank">
+                    <i class="fab fa-github"></i> Code
+                </a>
+                <a href="https://neurips.cc/virtual/2025/poster/121607" class="btn" target="_blank">
+                    <i class="fas fa-file-pdf"></i> Paper
+                </a>
+                <a href="https://github.com/kerner-lab/MarsBench#readme" class="btn" target="_blank">
+                    <i class="fas fa-book"></i> Documentation
+                </a>
+            </div>
+        </header>
+
+        <!-- Abstract -->
+        <section class="section" id="abstract">
+            <h3>Abstract</h3>
+            <p class="abstract">
+                Foundation models have enabled rapid progress across many specialized domains
+                by leveraging large-scale pre-training on unlabeled data, demonstrating strong
+                generalization to a variety of downstream tasks. While such models have gained
+                significant attention in fields like Earth Observation, their application to Mars
+                science remains limited. A key enabler of progress in other domains has been
+                the availability of standardized benchmarks that support systematic evaluation.
+                In contrast, Mars science lacks such benchmarks and standardized evaluation
+                frameworks, which have limited progress toward developing foundation models for
+                Martian tasks. To address this gap, we introduce Mars-Bench, the first benchmark
+                designed to systematically evaluate models across a broad range of Mars-related
+                tasks using both orbital and surface imagery. Mars-Bench comprises 20 datasets
+                spanning classification, segmentation, and object detection, focused on key geologic
+                features such as craters, cones, boulders, and frost. We provide standardized, ready-
+                to-use datasets and baseline evaluations using models pre-trained on natural images,
+                Earth satellite data, and state-of-the-art vision-language models. Results from all
+                analyses suggest that Mars-specific foundation models may offer advantages over
+                general-domain counterparts, motivating further exploration of domain-adapted pre-
+                training. Mars-Bench aims to establish a standardized foundation for developing
+                and comparing machine learning models for Mars science.
+            </p>
+        </section>
+
+        <!-- Key Features -->
+        <section class="section" id="features">
+            <h3>Key Features</h3>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-database"></i></div>
+                    <h4>Unified Dataset Interface</h4>
+                    <p>Standardized access to 18+ Mars image datasets across classification, segmentation, and detection tasks</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-brain"></i></div>
+                    <h4>Model Zoo</h4>
+                    <p>Pre-configured implementations of popular vision models including ResNet, ViT, Swin, U-Net, and more</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                    <h4>Experiment Tracking</h4>
+                    <p>Integration with WandB, TensorBoard, and CSV loggers for comprehensive experiment management</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-cog"></i></div>
+                    <h4>Flexible Configuration</h4>
+                    <p>Hydra-based configuration system for easy experiment customization and reproducibility</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Supported Tasks -->
+        <section class="section" id="tasks">
+            <h3>Supported Tasks & Datasets</h3>
+
+            <div class="task-section">
+                <h4><i class="fas fa-tag"></i> Classification (8 datasets)</h4>
+                <div class="dataset-list">
+                    <span class="dataset-tag">Atmospheric Dust (EDR/RDR)</span>
+                    <span class="dataset-tag">Change Detection (CTX/HiRISE)</span>
+                    <span class="dataset-tag">DoMars16k</span>
+                    <span class="dataset-tag">Frost Classification</span>
+                    <span class="dataset-tag">Landmark Classification</span>
+                    <span class="dataset-tag">Surface Classification</span>
+                </div>
+            </div>
+
+            <div class="task-section">
+                <h4><i class="fas fa-draw-polygon"></i> Segmentation (8 datasets)</h4>
+                <div class="dataset-list">
+                    <span class="dataset-tag">Boulder Segmentation</span>
+                    <span class="dataset-tag">ConeQuest</span>
+                    <span class="dataset-tag">Crater Segmentation</span>
+                    <span class="dataset-tag">MMLS</span>
+                    <span class="dataset-tag">MarsSegMER/MSL</span>
+                    <span class="dataset-tag">Mask2Former</span>
+                    <span class="dataset-tag">S5Mars</span>
+                </div>
+            </div>
+
+            <div class="task-section">
+                <h4><i class="fas fa-crosshairs"></i> Detection (3 datasets)</h4>
+                <div class="dataset-list">
+                    <span class="dataset-tag">Boulder Detection</span>
+                    <span class="dataset-tag">ConeQuest Detection</span>
+                    <span class="dataset-tag">Dust Devil Detection</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Model Architectures -->
+        <section class="section" id="models">
+            <h3>Supported Model Architectures</h3>
+            <div class="models-grid">
+                <div class="model-category">
+                    <h4>Classification</h4>
+                    <ul>
+                        <li>ResNet (18, 50, 101)</li>
+                        <li>Vision Transformer (ViT)</li>
+                        <li>Swin Transformer</li>
+                        <li>InceptionV3</li>
+                        <li>SqueezeNet</li>
+                    </ul>
+                </div>
+                <div class="model-category">
+                    <h4>Segmentation</h4>
+                    <ul>
+                        <li>U-Net</li>
+                        <li>DeepLab</li>
+                        <li>DPT</li>
+                        <li>Mask2Former</li>
+                        <li>SegFormer</li>
+                    </ul>
+                </div>
+                <div class="model-category">
+                    <h4>Detection</h4>
+                    <ul>
+                        <li>Faster R-CNN</li>
+                        <li>RetinaNet</li>
+                        <li>SSD</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Citation -->
+        <section class="section" id="citation">
+            <h3>Citation</h3>
+            <div class="citation-box">
+                <pre><code>@software{marsbench2024,
+  title={MarsBench: A Comprehensive Benchmark for Mars Surface Vision Tasks},
+  author={MarsBench Authors},
+  year={2024},
+  url={https://github.com/kerner-lab/MarsBench}
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>Built with <i class="fas fa-heart"></i> for Mars exploration and planetary science</p>
+        </footer>
+    </div>
+
+    <script src="static/script.js"></script>
+</body>
+</html>
