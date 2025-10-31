@@ -14,10 +14,8 @@
             <h3 class="toc-title">Contents</h3>
             <ul class="toc-list">
                 <li><a href="#abstract" class="toc-link">Abstract</a></li>
-                <li><a href="#features" class="toc-link">Key Features</a></li>
-                <li><a href="#tasks" class="toc-link">Tasks & Datasets</a></li>
-                <li><a href="#quickstart" class="toc-link">Quick Start</a></li>
-                <li><a href="#models" class="toc-link">Model Architectures</a></li>
+                <li><a href="#datasets" class="toc-link">Datasets</a></li>
+                <li><a href="#acknowledgment" class="toc-link">Acknowledgment</a></li>
                 <li><a href="#citation" class="toc-link">Citation</a></li>
             </ul>
         </div>
@@ -55,17 +53,39 @@
 
             <!-- Links -->
             <div class="links">
+                <a href="https://arxiv.org/abs/2510.24010" class="btn" target="_blank">
+                    <img src="static/images/arxiv-logo.png" alt="arXiv" style="height: 1em; vertical-align: middle; margin-right: 0.3em;"> Paper
+                </a>
                 <a href="https://github.com/kerner-lab/MarsBench" class="btn" target="_blank">
-                    <i class="fab fa-github"></i> Code
+                    <img src="static/images/github-logo.jpg" alt="GitHub" style="height: 1em; vertical-align: middle; margin-right: 0.3em;"> GitHub
                 </a>
-                <a href="https://neurips.cc/virtual/2025/poster/121607" class="btn" target="_blank">
-                    <i class="fas fa-file-pdf"></i> Paper
+                <a href="https://huggingface.co/spaces/Mirali33/Mars-Bench" class="btn" target="_blank">
+                    🏆 Leaderboard
                 </a>
-                <a href="https://github.com/kerner-lab/MarsBench#readme" class="btn" target="_blank">
-                    <i class="fas fa-book"></i> Documentation
+                <a href="https://huggingface.co/collections/Mirali33/mars-bench-models" class="btn" target="_blank">
+                    🤖 Baseline Models
+                </a>
+                <br>
+                <a href="https://huggingface.co/collections/Mirali33/mars-bench" class="btn" target="_blank">
+                    🤗 HuggingFace Datasets
+                </a>
+                <a href="https://zenodo.org/communities/mars-bench/" class="btn" target="_blank">
+                    <img src="static/images/zenodo-logo.png" alt="Zenodo" style="height: 1em; vertical-align: middle; margin-right: 0.3em;"> Zenodo Datasets
                 </a>
             </div>
+
+            <!-- Conference -->
+            <div class="conference">
+                NeurIPS 2025
+            </div>
         </header>
+
+        <!-- Teaser Figure -->
+        <section class="section" id="teaser">
+            <div style="text-align: center;">
+                <img src="static/images/figure.png" alt="Mars-Bench Tasks: Classification, Object Detection, and Segmentation" style="width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px;">
+            </div>
+        </section>
 
         <!-- Abstract -->
         <section class="section" id="abstract">
@@ -93,116 +113,34 @@
             </p>
         </section>
 
-        <!-- Key Features -->
-        <section class="section" id="features">
-            <h3>Key Features</h3>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-database"></i></div>
-                    <h4>Unified Dataset Interface</h4>
-                    <p>Standardized access to 18+ Mars image datasets across classification, segmentation, and detection tasks</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-brain"></i></div>
-                    <h4>Model Zoo</h4>
-                    <p>Pre-configured implementations of popular vision models including ResNet, ViT, Swin, U-Net, and more</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
-                    <h4>Experiment Tracking</h4>
-                    <p>Integration with WandB, TensorBoard, and CSV loggers for comprehensive experiment management</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-cog"></i></div>
-                    <h4>Flexible Configuration</h4>
-                    <p>Hydra-based configuration system for easy experiment customization and reproducibility</p>
-                </div>
+        <!-- Datasets -->
+        <section class="section" id="datasets">
+            <h3>Datasets</h3>
+            <div style="text-align: center;">
+                <img src="static/images/dataset.png" alt="Mars-Bench Datasets Overview" style="width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px;">
             </div>
         </section>
 
-        <!-- Supported Tasks -->
-        <section class="section" id="tasks">
-            <h3>Supported Tasks & Datasets</h3>
-
-            <div class="task-section">
-                <h4><i class="fas fa-tag"></i> Classification (8 datasets)</h4>
-                <div class="dataset-list">
-                    <span class="dataset-tag">Atmospheric Dust (EDR/RDR)</span>
-                    <span class="dataset-tag">Change Detection (CTX/HiRISE)</span>
-                    <span class="dataset-tag">DoMars16k</span>
-                    <span class="dataset-tag">Frost Classification</span>
-                    <span class="dataset-tag">Landmark Classification</span>
-                    <span class="dataset-tag">Surface Classification</span>
-                </div>
-            </div>
-
-            <div class="task-section">
-                <h4><i class="fas fa-draw-polygon"></i> Segmentation (8 datasets)</h4>
-                <div class="dataset-list">
-                    <span class="dataset-tag">Boulder Segmentation</span>
-                    <span class="dataset-tag">ConeQuest</span>
-                    <span class="dataset-tag">Crater Segmentation</span>
-                    <span class="dataset-tag">MMLS</span>
-                    <span class="dataset-tag">MarsSegMER/MSL</span>
-                    <span class="dataset-tag">Mask2Former</span>
-                    <span class="dataset-tag">S5Mars</span>
-                </div>
-            </div>
-
-            <div class="task-section">
-                <h4><i class="fas fa-crosshairs"></i> Detection (3 datasets)</h4>
-                <div class="dataset-list">
-                    <span class="dataset-tag">Boulder Detection</span>
-                    <span class="dataset-tag">ConeQuest Detection</span>
-                    <span class="dataset-tag">Dust Devil Detection</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Model Architectures -->
-        <section class="section" id="models">
-            <h3>Supported Model Architectures</h3>
-            <div class="models-grid">
-                <div class="model-category">
-                    <h4>Classification</h4>
-                    <ul>
-                        <li>ResNet (18, 50, 101)</li>
-                        <li>Vision Transformer (ViT)</li>
-                        <li>Swin Transformer</li>
-                        <li>InceptionV3</li>
-                        <li>SqueezeNet</li>
-                    </ul>
-                </div>
-                <div class="model-category">
-                    <h4>Segmentation</h4>
-                    <ul>
-                        <li>U-Net</li>
-                        <li>DeepLab</li>
-                        <li>DPT</li>
-                        <li>Mask2Former</li>
-                        <li>SegFormer</li>
-                    </ul>
-                </div>
-                <div class="model-category">
-                    <h4>Detection</h4>
-                    <ul>
-                        <li>Faster R-CNN</li>
-                        <li>RetinaNet</li>
-                        <li>SSD</li>
-                    </ul>
-                </div>
-            </div>
+        <!-- Acknowledgment -->
+        <section class="section" id="acknowledgment">
+            <h3>Acknowledgment</h3>
+            <p class="acknowledgment-text">
+                Part of this research was carried out at the Jet Propulsion Laboratory, California Institute of Technology, under a contract with the National Aeronautics and Space Administration.
+            </p>
         </section>
 
         <!-- Citation -->
         <section class="section" id="citation">
             <h3>Citation</h3>
             <div class="citation-box">
-                <pre><code>@software{marsbench2024,
-  title={MarsBench: A Comprehensive Benchmark for Mars Surface Vision Tasks},
-  author={MarsBench Authors},
-  year={2024},
-  url={https://github.com/kerner-lab/MarsBench}
+                <pre><code>@misc{purohit2025marsbench,
+  title={Mars-Bench: A Benchmark for Evaluating Foundation Models for Mars Science Tasks},
+  author={Purohit Mirali and Gajera Bimal and Malaviya Vatsal and Mehta Irish and Kasodekar Kunal and Adler Jacob and Lu Steven and Rebbapragada Umaa and Kerner Hannah},
+  year={2025},
+  eprint={2510.24010},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV},
+  url={https://arxiv.org/abs/2510.24010}
 }</code></pre>
             </div>
         </section>
